@@ -21,6 +21,7 @@ import android.os.AsyncTask;
 import android.os.Build;
 import android.os.Bundle;
 import android.provider.MediaStore;
+import android.util.Base64;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.View;
@@ -58,6 +59,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 import org.w3c.dom.Text;
 
+import java.io.ByteArrayOutputStream;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.HashMap;
@@ -106,6 +108,30 @@ public class MapBoxActivity extends AppCompatActivity {
         botonAdoptar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                //CONVERTIR LA IMAGEN TOMADA O SELECCIONADA A BASE 64
+                //sacar la imagen puesta en el boton de la camara y convertirla a String Base 64
+                Bitmap foto = ((BitmapDrawable)botonCamara.getDrawable()).getBitmap();
+                ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                foto.compress(Bitmap.CompressFormat.JPEG, 100, baos);
+                byte[] fotosbytes = baos.toByteArray();
+                String fotoString = Base64.encodeToString(fotosbytes, Base64.DEFAULT);
+                //OOBTENEMOS LA DIRECCION; LATITUD; LONGITUD DE LOS CONTROLES
+                String direcicon, latitud, longitud;
+                direcicon = txt_direccion.getText().toString();
+                latitud = txt_latitud.getText().toString();
+                longitud = txt_longitud.getText().toString();
+                //Creamos un objeto de la clase REgistrar Bache
+                RegistrarBache registrar = new RegistrarBache(direcicon, latitud, longitud, fotoString);
+                //Ejecutamos el web service
+                registrar.execute();
+                //Cerramos el botomshet la info del bache
+                botomSheet.setState(BottomSheetBehavior.STATE_COLLAPSED);
+                //limpiamos los controles del botom shet
+                txt_longitud.setText("");
+                txt_latitud.setText("");
+                txt_direccion.setText("");
+                //regresar la imagen de la camara al boton
+                botonCamara.setImageResource(R.drawable.ic_camara);
 
             }
         });
