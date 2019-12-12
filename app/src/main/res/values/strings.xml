@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Adopta un Bache</string>
+    <string name="GoogleMapsKey">AIzaSyC9LNWCynII5zdaHf3INfXVPhnBoeoIGg4</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="MapboxKey">pk.eyJ1IjoiYWJlbGRleCIsImEiOiJjazFsYjJuODgwMTZzM21waW94MXdkb3VpIn0.CRUvSFmmzZN_UK0IYLt3fA</string>
+    <string name="register">REGISTER</string>
+    <string name="login_email_hint">Email</string>
+    <string name="login_password_hint">Password</string>
+    <string name="signup_login_hint">Already have an account? Sign In</string>
+    <string name="login_signup_hint">Don\'t have an account? Sign Up</string>
+    <string name="login_name_hint">Name</string>
+    <string name="login_mobile_number_hint">Mobile Number</string>
+</resources>

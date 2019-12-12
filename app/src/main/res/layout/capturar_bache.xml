@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/capturar_bache"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#ffffff"
+    android:padding="15dp"
+    app:behavior_hideable="true"
+    app:behavior_peekHeight="0dp"
+    app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
+    <!-- TITULO -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center_vertical"
+        android:weightSum="3">
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="10dp"
+            android:layout_weight="2"
+            android:text="Direccion del Bache a Adoptar"
+            android:textColor="#444"
+            android:textSize="15dp"
+            android:textStyle="bold"
+            ></TextView>
+        <ImageView
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:gravity="right"
+            android:layout_weight="1"
+            android:src="@drawable/ic_pinwarning"></ImageView>
+    </LinearLayout>
+
+    <!--CUERPO DEL LAYOUT DONDE IRA LA DIRECCION-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_location"></ImageView>
+        <TextView
+            android:id="@+id/txtDireccion"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="AQUI IRA LA DIRECCION"
+            android:textColor="@color/material_blue_grey_80"
+            android:textSize="18dp"
+            android:textStyle="bold">
+        </TextView>
+    </LinearLayout>
+
+    <!--CUERPO DEL LAYOUT DONDE SE VERAN LAS COORDENADAS -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/txtLatitud"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14dp"
+            android:layout_gravity="center"
+            android:text="Latitud:"></TextView>
+        <TextView
+            android:id="@+id/txtLongitud"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="14dp"
+            android:layout_gravity="center"
+            android:text="Longitud:"></TextView>
+    </LinearLayout>
+
+    <!-- BOTON PARA LA CAMARA -->
+    <ImageButton
+        android:id="@+id/botonCamara"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:src="@drawable/ic_camara"
+        android:layout_weight="1"
+        android:clickable="true"
+        android:scaleType="fitCenter"
+        android:background="?attr/selectableItemBackgroundBorderless"
+        ></ImageButton>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:layout_gravity="center"
+        android:text="Presione la capara para capturar la Imagen"></TextView>
+
+    <Button
+        android:id="@+id/boton_Adoptar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="30dp"
+        android:background="@android:color/holo_green_dark"
+        android:foreground="?attr/selectableItemBackground"
+        android:text="ADOPTAR"
+        android:textColor="#fff" />
+
+</LinearLayout>
